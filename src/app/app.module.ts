@@ -10,6 +10,8 @@ import { PlanComponent } from './plan/plan.component';
 import { ProgrammeComponent } from './programme/programme.component';
 import { MediaComponent } from './media/media.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { CardBoardComponent } from './home/card-board/card-board.component';
+import { SlideCardComponent } from './home/slide-card/slide-card.component';
 
 
 
@@ -21,7 +23,9 @@ import { LogInComponent } from './log-in/log-in.component';
     PlanComponent,
     ProgrammeComponent,
     MediaComponent,
-    LogInComponent
+    LogInComponent,
+    CardBoardComponent,
+    SlideCardComponent
   ],
   imports: [
     BrowserModule,
