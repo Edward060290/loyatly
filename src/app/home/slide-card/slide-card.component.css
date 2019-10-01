@@ -1,0 +1,45 @@
+
+
+.height{
+    height: 457px;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+  }
+
+  .centered {
+    position: absolute;
+    top: 63%;
+    left: 59%;
+    height: 364px;
+    width: 700px;
+    border: 1px solid white;
+    transform: translate(-50%, -50%);
+  }
+
+  
+.bg-gray{
+    background-color: rgb(219, 219, 219);
+}
+
+.txt-20px {
+    font-size: 30px;
+    text-align: left;
+    font-weight: bold;
+    
+}
+
+.card-text{
+    font-size: 20px;
+    text-align: left;
+}
+
+.button-read {
+    margin-right: 503px;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    width: 4%;
+}
