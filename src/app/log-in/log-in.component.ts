@@ -24,14 +24,15 @@ export class LogInComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
 
   logInUser() {
+    this.authenticationService.getToken()
     const userInfoData = this.userData;
     userInfoData.email = this.logInForm.controls.email.value;
     userInfoData.password = this.logInForm.controls.password.value;
+    console.log('objecto creado', userInfoData)
     this.authenticationService.logInUser(userInfoData).subscribe(res => {
       const userResp = res;
     });

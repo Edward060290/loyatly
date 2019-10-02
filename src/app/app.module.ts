@@ -13,9 +13,11 @@ import { CardBoardComponent } from './home/card-board/card-board.component';
 import { SlideCardComponent } from './home/slide-card/slide-card.component';
 import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
 import { AuthenticationService } from './services/authentication.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { RegisterComponent } from './register/register.component';
+import { StorageService } from './services/storage.service';
+import { InterceptorService } from './services/interceptor.service';
 
 
 
@@ -41,6 +43,12 @@ import { RegisterComponent } from './register/register.component';
   ],
   providers: [
     AuthenticationService,
+    StorageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

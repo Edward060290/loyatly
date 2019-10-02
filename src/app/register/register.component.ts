@@ -13,6 +13,11 @@ export class RegisterComponent implements OnInit {
 
   private registerForm: FormGroup;
 
+  // tslint:disable-next-line:max-line-length
+  public VALIDATE_EMAIL = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  public PATTERN_ALFABETICO = /^[a-zA-Z ñÑáéíóú]*$/;
+
   private userRegisterData = new RegisterUser;
   constructor(
     private fb: FormBuilder,
@@ -20,8 +25,9 @@ export class RegisterComponent implements OnInit {
 
   ) {
     this.registerForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40),
+        Validators.pattern(this.PATTERN_ALFABETICO)]],
+      email: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(150), this.authenticationService.validateEmail]],
       password: ['', Validators.required]
     })
   }
