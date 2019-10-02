@@ -8,10 +8,14 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PlanComponent } from './plan/plan.component';
 import { ProgrammeComponent } from './programme/programme.component';
-import { MediaComponent } from './media/media.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { CardBoardComponent } from './home/card-board/card-board.component';
 import { SlideCardComponent } from './home/slide-card/slide-card.component';
+import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
+import { AuthenticationService } from './services/authentication.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -22,16 +26,22 @@ import { SlideCardComponent } from './home/slide-card/slide-card.component';
     HomeComponent,
     PlanComponent,
     ProgrammeComponent,
-    MediaComponent,
     LogInComponent,
     CardBoardComponent,
-    SlideCardComponent
+    SlideCardComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
