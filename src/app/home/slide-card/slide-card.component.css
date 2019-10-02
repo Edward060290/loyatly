@@ -38,7 +38,17 @@
 
 .button-read {
     margin-right: 503px;
+    color: black;
+    background-color: white;
+    border-color: black
+
 }
+.button-read:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid blue;
+}
+
 
 .carousel-control-next, .carousel-control-prev {
     width: 4%;
