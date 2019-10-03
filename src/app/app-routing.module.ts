@@ -6,6 +6,9 @@ import { ProgrammeComponent } from './programme/programme.component';
 import { PlanComponent } from './plan/plan.component';
 import { RegisterComponent } from './register/register.component';
 
+/**
+* el modelo que asigna rutas en los componentes
+*/
 const routes: Routes = [
   {
     path: '',

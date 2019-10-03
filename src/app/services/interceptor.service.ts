@@ -19,31 +19,31 @@ import { KeysStorage } from '../model/key-storage';
 @Injectable()
 export class InterceptorService implements HttpInterceptor {
 
-   /**
-   * Constructor que injecta los servicio de uso nesesario para el servicio 
-   */
-  constructor( private http: HttpClient, private storageService: StorageService,
+  /**
+  * Constructor que injecta los servicio de uso nesesario para el servicio 
+  */
+  constructor(private http: HttpClient, private storageService: StorageService,
     private authenticationService: AuthenticationService) {
-      debugger
-      // subscribe del metodo al servicio fake del token
-  /*    this.authenticationService.getToken().pipe(map( data => this.token)).subscribe(result =>{
-       console.log(result);
-     }) */
-    /*  this.storageService.setToLocalStorage(KeysStorage.TOKEN, 'asfwefasfasdfa0088'); */
-    }
+    // subscribe del metodo al servicio fake del token
+    /*    this.authenticationService.getToken().pipe(map( data => this.token)).subscribe(result =>{
+         console.log(result);
+       }) */
+    // servicio fake del token
+    this.storageService.setToLocalStorage(KeysStorage.TOKEN, 'asfwefasfasdfa0088');
+  }
 
-   /**
-    * Interceptor que injecta el token en la cabesera
-    */
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  /**
+   * Interceptor que injecta el token en la cabesera
+   */
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = this.storageService.getFromLocalStorage(KeysStorage.TOKEN);
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-      return next.handle(request);
-    }
+    request = request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return next.handle(request);
+  }
 
 
 }

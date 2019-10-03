@@ -54,7 +54,6 @@ export class LogInComponent implements OnInit {
     userInfoData.password = this.logInForm.controls.password.value;
     this.authenticationService.logInUser(userInfoData).subscribe(res => {
       const userResp = res;
-      console.log(userResp);
     });
   }
 }
