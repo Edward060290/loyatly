@@ -8,26 +8,51 @@ import { Token } from '../model/token';
 import { Observable } from '../../../node_modules/rxjs/Observable';
 import { map } from 'rxjs/operators';
 
-
+/**
+* Servicio para login y registro que se guarda
+*/
 @Injectable()
 export class AuthenticationService {
- private urlAuth = 'http://localhost:3004/login';
 
- private urlRegi = 'http://localhost:3004/register';
+  /**
+   * Endpoint del logIn
+   */
+  private urlAuth = 'http://localhost:3004/login';
 
- private urlToken = 'http://localhost:3004/token-number';
-  constructor(private http: HttpClient, private httpOld: Http, private storageService:StorageService) { }
+  /**
+  * Endpoint del logIn
+  */
+  private urlRegi = 'http://localhost:3004/register';
 
+  /**
+  * Endpoint de la peticion del token
+  */
+  private urlToken = 'http://localhost:3004/token-number';
+
+  /**
+  * Constructor que injecta los servicios que van hacer util
+  */
+  constructor(private http: HttpClient, private httpOld: Http, private storageService: StorageService) { }
+
+  /**
+   * Metodo que logea al usario
+   */
   logInUser(user) {
     this.storageService.setToLocalStorage(KeysStorage.KEY_USER_LOGIN, user);
     return this.http.post<any>(this.urlAuth, user);
   }
 
-  registerUser(user){
+/**
+ * Metodo que registra al usario
+ */
+  registerUser(user) {
     this.storageService.setToLocalStorage(KeysStorage.KEY_USER_REGISTER, user);
     return this.http.post<any>(this.urlRegi, user);
   }
 
+/**
+ * Metodo que valida Email
+ */
   validateEmail({ value }: FormControl): { [key: string]: any } {
     const val: string = value || '';
     if (val !== '') {
@@ -37,15 +62,12 @@ export class AuthenticationService {
     }
   }
 
- 
-  public getToken(): Observable<string> {
-    debugger
-
-    return this.http.get<string>(this.urlToken).pipe(
-      map((token: any) =>{
-        return token;
-      })
-    );
-}
+/**
+ * Metodo que real que va por el token en un fake response
+ */
+  /* public getToken(): Observable<any> {
+    return this.http.get<any>(this.urlToken);
   }
+   */
+}
 

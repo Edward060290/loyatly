@@ -13,6 +13,6 @@
       <label for="exampleInputPassword1">Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1"  formControlName="password" placeholder="Password">
     </div>
-    <button type="submit" class="btn btn-primary" (click)="registerUser()">Submit</button>
+    <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary" (click)="registerUser()">Submit</button>
   </form>
   </div> 

@@ -1,25 +1,25 @@
+/* margin top de 100px*/
 .mb-20px{
     margin-top: 100px;
 }
 
+/* text Size para el titulo */
 .txt-50px {
     font-size: 50px;
 }
 
+/* text size  */
 .txt-18px {
     font-size: 18px;
 }
 
-.bg-gray{
-    background-color: grey;
-}
-
+/* color para el boton  de readmore*/
 .btn-primary{
     background-color: black;
     outline-color: blue;
-
 }
 
+/* espacio de padding para linea de text para aliniarlo */
 .p-5{
     padding-right: 100px; 
 }
