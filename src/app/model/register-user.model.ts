@@ -9,6 +9,11 @@ export class RegisterUser {
     name: string;
 
     /**
+    * variable para guardar password
+    */
+   birthdate: number;
+
+    /**
     * variable para guardar email
     */
     email: string;

@@ -29,6 +29,17 @@ export class RegisterComponent {
   private userRegisterData = new RegisterUser;
 
   /**
+  * Crea una instancia de dia
+  */
+  public date = new Date();
+
+  /**
+  * Varibale para guadar la feche de hoy ano mes y dia
+  */
+  public maxDate = (new Date().getFullYear()).toString()+'-0'+(new Date().getMonth()+1).toString()+'-'+(new Date().getDate()).toString();
+
+
+  /**
   *  Injecta servicio y formbuilder para el uso en el componente
   */
   constructor(
@@ -40,6 +51,7 @@ export class RegisterComponent {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40),
       Validators.pattern(this.PATTERN_ALFABETICO)]],
+      birthdate: ['', Validators.required],
       email: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(150), this.authenticationService.validateEmail]],
       password: ['', Validators.required]
     });
@@ -51,11 +63,16 @@ export class RegisterComponent {
   registerUser() {
     const userData = this.userRegisterData;
     userData.name = this.registerForm.controls.name.value;
+    userData.birthdate = this.registerForm.controls.birthdate.value;
     userData.email = this.registerForm.controls.email.value;
     userData.password = this.registerForm.controls.password.value;
     this.authenticationService.registerUser(userData).subscribe(resp => {
       const userRegi = resp;
     });
+  }
+
+  dateChange(event){
+    console.log(event);
   }
 
 }

@@ -6,15 +6,21 @@
     </div>
 
     <div class="form-group">
+      <label for="birthdate pl-5">Birthdate</label> {{maxDate}}
+      <input [max]="maxDate" (change)="dateChange($event.target.value)" type="date" formControlName="birthdate" name="birthdate" id="birthdate">
+  </div>
+
+
+    <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email" placeholder="Enter email">
     </div>
 
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Password">
+      <label for="exampleInputPasswordValid">Password</label>
+      <input type="password" class="form-control" id="exampleInputPasswordValid" formControlName="password" placeholder="Password">
     </div>
-    
+
     <button type="submit" [disabled]="!registerForm.valid" class="btn btn-primary" (click)="registerUser()">Submit</button>
   </form>
 </div>
