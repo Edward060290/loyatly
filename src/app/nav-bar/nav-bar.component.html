@@ -1,25 +1,22 @@
 <div class="row">
-  <div>
-    <img src="assets/images/logo-michelangelo.jpg">
+  <div class="col-sm-12 col-md-6 col-lg-3">
+    <img src="assets/images/logo-michelangelo.jpg" >
   </div>
 </div>
 
 <div class="row">
-  <ul class="nav nav-tabs ml-40px">
-    <li class="nav-item">
-      <a class="nav-link "  routerLinkActive="active" href="#" routerLink="/home">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#"  routerLinkActive="active" routerLink="/plan">Plan your experience</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" routerLinkActive="active" routerLink="/programme">Programme</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " href="#" routerLinkActive="active" routerLink="/register">Register</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " href="#" routerLinkActive="active" routerLink="/login">LogIn</a>
-    </li>
-  </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ml-40px">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#" routerLinkActive="active"  routerLink="/home">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="#" routerLinkActive="active"  routerLink="/plan">Plan your experience</a>
+        <a class="nav-item nav-link" href="#" routerLinkActive="active"  routerLink="/programme">Programme</a>
+        <a class="nav-item nav-link" href="#" routerLinkActive="active"  routerLink="/register">Register</a>
+        <a class="nav-item nav-link" href="#" routerLinkActive="active"  routerLink="/login">LogIn</a>
+      </div>
+    </div>
+  </nav>
 </div>

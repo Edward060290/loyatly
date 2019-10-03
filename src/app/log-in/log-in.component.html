@@ -1,15 +1,18 @@
+
+  
 <div class="mt-5 mb-5">
-  <form [formGroup]="logInForm">
+  
+  <form [formGroup]="logInForm" (ngSubmit)="logInClientUser()" novalidate>
     <div class="form-group">
-      <label for="exampleInputEmailValid">Email address</label>
-      <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleInputEmailValid" formControlName="email" placeholder="Enter email" required [(ngModel)]="password">
+      <label for="exampleInputEmailValid">{{email}}</label>
+      <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleInputEmailValid" formControlName="email" placeholder="Enter email" required >
     </div>
 
     <div class="form-group">
       <label for="exampleInputPassworde">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassworde" formControlName="password" placeholder="Password" required [(ngModel)]="password">
+      <input type="password" class="form-control" id="exampleInputPassworde" formControlName="password" placeholder="Password" required >
     </div>
 
-    <button type="submit" [disabled]="!logInForm.valid" class="btn btn-primary" (click)="logInClientUser()">Submit</button>
+    <button type="submit" [disabled]="!logInForm.valid" class="btn btn-primary" >Submit</button>
   </form>
 </div>

@@ -4,9 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { StorageService } from './storage.service';
 import { KeysStorage } from '../model/key-storage';
 import { Http } from '../../../node_modules/@angular/http';
-import { Token } from '../model/token';
-import { Observable } from '../../../node_modules/rxjs/Observable';
-import { map } from 'rxjs/operators';
+
 
 /**
 * Servicio para login y registro que se guarda
@@ -69,5 +67,9 @@ export class AuthenticationService {
     return this.http.get<any>(this.urlToken);
   }
    */
+
+  validateBar(bar: FormControl) {
+    return bar.value.length == 10 ? null: { invalidBar: true }
+    }
 }
 

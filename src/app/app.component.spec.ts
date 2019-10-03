@@ -10,6 +10,14 @@ import { CardBoardComponent } from './home/card-board/card-board.component';
 import { SlideCardComponent } from './home/slide-card/slide-card.component';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '../../node_modules/@angular/router';
+import { BrowserModule } from '../../node_modules/@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { HttpModule } from '../../node_modules/@angular/http';
+import { AuthenticationService } from './services/authentication.service';
+import { StorageService } from './services/storage.service';
+
 
 describe('AppComponent', () => {
   const routes: Routes = [
@@ -38,10 +46,18 @@ describe('AppComponent', () => {
         RegisterComponent
       ],
       imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        HttpModule,
         RouterModule.forRoot(routes)
       ],
       providers: [
-        {provide: APP_BASE_HREF, useValue: '/'}
+        AuthenticationService,
+        StorageService,
+        {provide: APP_BASE_HREF, useValue: '/'},
       ]
     }).compileComponents();
   }));
@@ -55,6 +71,11 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('app');
   }));
+  it('should create the app', async(() => {
+    const fixture = TestBed.createComponent(NavBarComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  }));
   it(`should have as title 'nav'`, async(() => {
     const fixture = TestBed.createComponent(NavBarComponent);
     const app = fixture.debugElement.componentInstance;
@@ -65,5 +86,10 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
+  }));
+  it('should create the LogInComponent', async(() => {
+    const fixture = TestBed.createComponent(LogInComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
   }));
 });
