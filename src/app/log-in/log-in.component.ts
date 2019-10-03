@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserLogin } from '../model/user-login.model';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -13,6 +13,7 @@ import { AuthenticationService } from '../services/authentication.service';
 })
 export class LogInComponent implements OnInit {
 
+  text = 'login page';
   /**
   * Instancia para crear un formulario
   */
@@ -22,6 +23,11 @@ export class LogInComponent implements OnInit {
   * valor para intenciar un modelo para mandar informacion del cliente
   */
   private userData = new UserLogin;
+
+  /**
+  * valor para unite Test
+  */
+
 
   /**
   * Pattern para validar nombre

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 
+  /**
+   * servicios Storage para almacenada de datos
+   */
 @Injectable()
 export class StorageService {
 
