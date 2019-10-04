@@ -44,22 +44,38 @@ fdescribe('LogInComponent', () => {
       el = de.nativeElement;
     });
   }));
+
+  /**
+   * Cheka se se creo el componente
+   */
   it('should have as page LogInComponent', async(() => {
     fixture = TestBed.createComponent(LogInComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as page 'Email address' `, async(() => {
+
+  /**
+  * Cheka si tiene la vaible page en el componente
+  */
+  it(`should have email variable 'Email address' `, async(() => {
     fixture = TestBed.createComponent(LogInComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.email).toEqual('Email address');
   }));
+
+  /**
+  * Cheka cuando el cliente la da click al boton
+  */
   it('should set submited to true', async(() => {
     fixture = TestBed.createComponent(LogInComponent);
     const app = fixture.debugElement.componentInstance;
     app.logInClientUser();
     expect(app.submitted).toBeTruthy();
   }));
+
+  /**
+ * Checa cuando el metodo loagInClientUser se ejecuta
+ */
   it('should call the logInClientUser method', async(() => {
     fixture = TestBed.createComponent(LogInComponent);
     fixture.detectChanges();
