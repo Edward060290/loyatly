@@ -4,20 +4,8 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-  branches:
-    include:
-    - master
-    - releases/*
-    - feature/*
-    exclude:
-    - releases/old*
-    - feature/*-working
-  paths:
-    include:
-    - '*' # same as '/' for the repository root
-    exclude:
-    - 'docs/*' # same as 'docs/'
-    
+  - master
+  
 pool:
   vmImage: ubuntu-latest
 
