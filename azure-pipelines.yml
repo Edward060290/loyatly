@@ -4,13 +4,25 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
-
+  branches:
+    include:
+    - master
+    - releases/*
+    - feature/*
+    exclude:
+    - releases/old*
+    - feature/*-working
+  paths:
+    include:
+    - '*' # same as '/' for the repository root
+    exclude:
+    - 'docs/*' # same as 'docs/'
+    
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: NodeTool@0
+ - task: Maven@3
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
